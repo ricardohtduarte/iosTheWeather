@@ -21,12 +21,17 @@ class MainCityList: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func reload_list_cities(){
-        let city_name:String = "paris"
         let request_city = Request_city()
-        let city:City = request_city.fetchCity(name: city_name)
-        print("Name: \(String(describing: city.name))")
-        print("Country: \(String(describing: city.country))")
-        print("Region: \(String(describing: city.region))")
+        request_city.fetch_city() { (city) -> () in
+            if let city_name = city.name, let city_country = city.country, let city_region = city.region{
+                print("Name: \(city_name)")
+                print("Country: \(city_country)")
+                print("Region: \(city_country)")
+            }
+            else{
+                print("Error: could not load city location")
+            }
+        }
     }
     
 

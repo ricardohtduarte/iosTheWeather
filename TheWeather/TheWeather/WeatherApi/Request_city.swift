@@ -7,37 +7,42 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+
 
 class Request_city: NSObject {
     
     var get_city_url = "https://api.apixu.com/v1/current.json?key=ec4629c7d40f4a90a1e160602180804&q="
     
-    func fetchCity(name:String) -> City{
-        let city = City()
-        let complete_url = get_city_url + name
-        let url_request = URLRequest(url: URL(string: complete_url)!)
-        let task = URLSession.shared.dataTask(with: url_request){(data, response, error) in
-            if error != nil {
-                print(error!)
-                return
-            }
-            do{
-                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String : AnyObject]
-                if let city_location = json["location"] as? [String : AnyObject]{
-                    if let name = city_location["name"],
-                        let region = city_location["region"],
-                        let country = city_location["country"],
-                        let lat = city_location["lat"],
-                        let lon = city_location["lon"]{
-                        city.fill_city_location(name:name as! String, region:region as! String, country:country as! String,
-                                                lat:lat as! Double, lon:lon as! Double)
+    func fetch_city(request_complete: @escaping (City) -> ()){
+        Alamofire.request("https://api.apixu.com/v1/current.json?key=ec4629c7d40f4a90a1e160602180804&q=paris", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
+            .responseJSON { (responseData) -> Void in
+                if((responseData.result.value) != nil) {
+                    let response = JSON(responseData.result.value!)
+                    if let city_location = response["location"].dictionaryObject{
+                        if let name = city_location["name"] as? String,
+                                let region = city_location["region"] as? String,
+                                let country = city_location["country"] as? String,
+                                let lat = city_location["lat"] as? Double,
+                                let lon = city_location["lon"] as? Double
+                        {
+                            let city = City()
+                            city.name = name
+                            city.country = country
+                            city.region = region
+                            city.lat = lat
+                            city.lon = lon
+                            request_complete(city)
+                        }
+                        else{
+                            print("Could not load city attributes")
+                        }
+                    }
+                    else{
+                        print("Could not load location/current city property")
                     }
                 }
-            }catch let error{
-                print(error)
-            }
         }
-        task.resume()
-       return city
     }
 }
