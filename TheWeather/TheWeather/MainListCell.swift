@@ -10,9 +10,10 @@ import UIKit
 
 class MainListCell: UITableViewCell {
 
-    @IBOutlet weak var tem_label: UIView!
-    @IBOutlet weak var city_label: UIView!
-    @IBOutlet weak var country_label: UIView!
+    @IBOutlet weak var city_name: UILabel!
+    @IBOutlet weak var city_country: UILabel!
+    @IBOutlet weak var city_temp: UILabel!
+    @IBOutlet weak var city_weather_image: UIImageView!
     
     
     override func awakeFromNib() {

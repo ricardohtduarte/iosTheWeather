@@ -15,12 +15,9 @@ class City: NSObject {
     var lat:Double?
     var lon:Double?
     
-    func fill_city_location(name:String, region:String, country:String, lat:Double, lon:Double){
+    func fill_city_location(name:String, country:String){
         self.name = name
-        self.region = region
         self.country = country
-        self.lat = lat
-        self.lon = lon
     }
     
 }

@@ -10,9 +10,11 @@ import UIKit
 
 
 class MainCityList: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    @IBOutlet weak var city_table_view: UITableView!
+    
     //has to have an array of cities, each time the app opens, it requests all the cities in the array
-    var cities:[City]?
+    var cities:[City]? = []
+    var city_names:[String] = ["paris", "london", "lisbon"]
     
     
     override func viewDidLoad() {
@@ -21,15 +23,14 @@ class MainCityList: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func reload_list_cities(){
-        let request_city = Request_city()
-        request_city.fetch_city() { (city) -> () in
-            if let city_name = city.name, let city_country = city.country, let city_region = city.region{
-                print("Name: \(city_name)")
-                print("Country: \(city_country)")
-                print("Region: \(city_country)")
-            }
-            else{
-                print("Error: could not load city location")
+        
+        for city_name in city_names{
+            let request_city = Request_city()
+            request_city.fetch_city(city_name:city_name) { (city) -> () in
+                self.cities?.append(city)
+                DispatchQueue.main.async {
+                    self.city_table_view.reloadData()
+                }
             }
         }
     }
@@ -45,11 +46,18 @@ class MainCityList: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return cities?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "city_cell", for: indexPath) as! MainListCell
+        if let cities = cities{
+            cell.city_name.text = cities[indexPath.item].name
+            cell.city_country.text = cities[indexPath.item].country
+        }
+        else{
+            print("Error: there aren't any cities do show")
+        }
         return cell
     }
     
