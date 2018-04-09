@@ -9,7 +9,7 @@
 import UIKit
 
 
-class MainCityList: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainCitiesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var city_table_view: UITableView!
     
     //has to have an array of cities, each time the app opens, it requests all the cities in the array
