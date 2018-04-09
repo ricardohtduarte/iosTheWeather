@@ -15,7 +15,7 @@ class MainCityList: UIViewController, UITableViewDelegate, UITableViewDataSource
     //has to have an array of cities, each time the app opens, it requests all the cities in the array
     var cities:[City]? = []
     var city_names:[String] = ["paris", "london", "lisbon"]
-    
+    var isCelsius:Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +54,12 @@ class MainCityList: UIViewController, UITableViewDelegate, UITableViewDataSource
         if let cities = cities{
             cell.city_name.text = cities[indexPath.item].name
             cell.city_country.text = cities[indexPath.item].country
+            if isCelsius{
+                cell.city_temp.text = "\(cities[indexPath.item].c_temp!) C"
+            }
+            else{
+                cell.city_temp.text = "\(cities[indexPath.item].f_temp!) F"
+            }
         }
         else{
             print("Error: there aren't any cities do show")
