@@ -14,7 +14,7 @@
         <!--Search-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController title="Search" id="8rJ-Kc-sve" customClass="SearchViewController" customModule="TheWeather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="search_list" title="Search" id="8rJ-Kc-sve" customClass="SearchViewController" customModule="TheWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,76 +32,37 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="nbX-Qf-QE8">
-                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="8rJ-Kc-sve" id="gec-nt-WFj"/>
-                                </connections>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9pw-GP-2la">
-                                <rect key="frame" x="0.0" y="76" width="375" height="542"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search" id="nbX-Qf-QE8">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="8rJ-Kc-sve" id="gec-nt-WFj"/>
+                                    </connections>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="search_cell" rowHeight="74" id="xE0-9a-ILr" customClass="SearchCityCell" customModule="TheWeather" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="74"/>
+                                        <rect key="frame" x="0.0" y="84" width="375" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xE0-9a-ILr" id="uaH-dk-qTv">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="73.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Kf-14-wTC">
-                                                    <rect key="frame" x="15" y="26" width="111" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="111" id="rDF-T4-Jfi"/>
-                                                        <constraint firstAttribute="height" constant="21" id="tCq-TR-wau"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Region" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="whC-Hc-N5o">
-                                                    <rect key="frame" x="134" y="26" width="53" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="53" id="kVm-f7-xmp"/>
-                                                        <constraint firstAttribute="height" constant="21" id="yQs-Ab-tn0"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUj-Fo-Tvq">
-                                                    <rect key="frame" x="266" y="26" width="61.5" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="Qcd-EF-T1Q"/>
-                                                        <constraint firstAttribute="width" constant="61.5" id="v0E-AI-FFh"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Akg-bb-PzO">
+                                                    <rect key="frame" x="15" y="26" width="345" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="WUj-Fo-Tvq" secondAttribute="trailing" constant="32.5" id="2wz-Sq-c1F"/>
-                                                <constraint firstItem="whC-Hc-N5o" firstAttribute="top" secondItem="uaH-dk-qTv" secondAttribute="topMargin" constant="15" id="DAY-KZ-UHU"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="0Kf-14-wTC" secondAttribute="bottom" constant="16" id="Etm-Xq-0QF"/>
-                                                <constraint firstItem="WUj-Fo-Tvq" firstAttribute="leading" secondItem="whC-Hc-N5o" secondAttribute="trailing" constant="79" id="IYG-Yf-T5K"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="whC-Hc-N5o" secondAttribute="bottom" constant="16" id="IyX-d5-i6i"/>
-                                                <constraint firstItem="0Kf-14-wTC" firstAttribute="leading" secondItem="uaH-dk-qTv" secondAttribute="leadingMargin" id="S6Y-E2-hqG"/>
-                                                <constraint firstItem="WUj-Fo-Tvq" firstAttribute="top" secondItem="uaH-dk-qTv" secondAttribute="topMargin" constant="15" id="T74-UQ-Z7D"/>
-                                                <constraint firstItem="whC-Hc-N5o" firstAttribute="leading" secondItem="0Kf-14-wTC" secondAttribute="trailing" constant="8" id="TAT-Ve-pMW"/>
-                                                <constraint firstItem="WUj-Fo-Tvq" firstAttribute="leading" secondItem="whC-Hc-N5o" secondAttribute="trailing" constant="79" id="Yok-wc-7nD"/>
-                                                <constraint firstItem="whC-Hc-N5o" firstAttribute="leading" secondItem="0Kf-14-wTC" secondAttribute="trailing" constant="8" id="Yx9-bq-dMF"/>
-                                                <constraint firstItem="0Kf-14-wTC" firstAttribute="top" secondItem="uaH-dk-qTv" secondAttribute="topMargin" constant="15" id="dnP-VF-Yn5"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="WUj-Fo-Tvq" secondAttribute="bottom" constant="16" id="fMV-Ke-ENA"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="city_label" destination="0Kf-14-wTC" id="7ZN-QC-O4K"/>
-                                            <outlet property="country_label" destination="WUj-Fo-Tvq" id="ce8-HI-LWv"/>
-                                            <outlet property="region_label" destination="whC-Hc-N5o" id="qPm-5b-8mU"/>
+                                            <outlet property="city_label" destination="Akg-bb-PzO" id="Qo7-S4-EAJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -122,6 +83,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="cPa-gy-q4n"/>
                     <connections>
+                        <outlet property="search_bar" destination="nbX-Qf-QE8" id="yJX-j5-L0u"/>
                         <outlet property="search_table_view" destination="9pw-GP-2la" id="kdY-Xa-T7l"/>
                     </connections>
                 </viewController>
@@ -150,18 +112,23 @@
         <!--Cities-->
         <scene sceneID="1Oz-71-SJ5">
             <objects>
-                <viewController title="Cities" id="5qr-4n-dL9" customClass="MainCitiesViewController" customModule="TheWeather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="main_list" title="Cities" id="5qr-4n-dL9" customClass="MainCitiesViewController" customModule="TheWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Go7-zK-8aD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MHo-eC-RaR">
-                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="Ncc-O8-YY0">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="city_cell" rowHeight="86" id="Dol-B4-Ki5" customClass="MainListCell" customModule="TheWeather" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="86"/>
+                                        <rect key="frame" x="0.0" y="84" width="375" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dol-B4-Ki5" id="qUw-U9-YV4">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="85.5"/>
@@ -236,11 +203,6 @@
                                     <outlet property="delegate" destination="5qr-4n-dL9" id="UDt-ho-wjn"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ncc-O8-YY0">
-                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="bw7-1c-GiY"/>

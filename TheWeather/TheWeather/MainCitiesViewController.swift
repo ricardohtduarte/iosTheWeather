@@ -8,25 +8,34 @@
 
 import UIKit
 
-
 class MainCitiesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var city_table_view: UITableView!
     
+   
     //has to have an array of cities, each time the app opens, it requests all the cities in the array
     var cities:[City]? = []
-    var city_names:[String] = ["paris", "london", "lisbon"]
+    var cities_coords:[(Double, Double)] = [(48.86, 2.35), (51.52,-0.11)]
     var isCelsius:Bool = true
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if !cities_coords.isEmpty{
+            reload_list_cities()
+        }
+    }
+    
+    func addToCityCoords(coords:(Double, Double)){
+        cities_coords.append((coords.0, coords.1))
+        print("city added")
         reload_list_cities()
     }
     
     func reload_list_cities(){
         
-        for city_name in city_names{
+        for city_coords in cities_coords{
             let request_city = Request_city()
-            request_city.fetch_city(city_name:city_name) { (city) -> () in
+            request_city.fetch_city(lat:city_coords.0, lon:city_coords.1) { (city) -> () in
                 self.cities?.append(city)
                 DispatchQueue.main.async {
                     self.city_table_view.reloadData()
@@ -80,3 +89,5 @@ class MainCitiesViewController: UIViewController, UITableViewDelegate, UITableVi
     */
 
 }
+
+

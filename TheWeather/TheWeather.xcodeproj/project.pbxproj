@@ -11,14 +11,16 @@
 		6214808C01189F13B1B62C8F /* Pods_TheWeatherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9ED3DA8D46C013C90ED6E0 /* Pods_TheWeatherTests.framework */; };
 		89DB9E25FB6EF234CCE60A58 /* Pods_TheWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7BA4F1DB8B0823EDA2B702 /* Pods_TheWeather.framework */; };
 		A13AB2E6207A63360054DA50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB2E5207A63360054DA50 /* AppDelegate.swift */; };
-		A13AB2EA207A63360054DA50 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB2E9207A63360054DA50 /* SecondViewController.swift */; };
+		A13AB2EA207A63360054DA50 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB2E9207A63360054DA50 /* SearchViewController.swift */; };
 		A13AB2ED207A63360054DA50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A13AB2EB207A63360054DA50 /* Main.storyboard */; };
 		A13AB2EF207A63370054DA50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A13AB2EE207A63370054DA50 /* Assets.xcassets */; };
 		A13AB2F2207A63370054DA50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A13AB2F0207A63370054DA50 /* LaunchScreen.storyboard */; };
 		A13AB2FD207A63370054DA50 /* TheWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB2FC207A63370054DA50 /* TheWeatherTests.swift */; };
 		A13AB308207A63370054DA50 /* TheWeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB307207A63370054DA50 /* TheWeatherUITests.swift */; };
-		A13AB317207A6F6F0054DA50 /* MainCityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB316207A6F6F0054DA50 /* MainCityList.swift */; };
+		A13AB317207A6F6F0054DA50 /* MainCitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB316207A6F6F0054DA50 /* MainCitiesViewController.swift */; };
 		A13AB319207A732B0054DA50 /* MainListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB318207A732B0054DA50 /* MainListCell.swift */; };
+		A1949634207BAA6E00336185 /* SearchCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1949633207BAA6E00336185 /* SearchCityCell.swift */; };
+		A1949636207BAF4600336185 /* CityLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1949635207BAF4600336185 /* CityLocation.swift */; };
 		A1E8F373207A753C00BFA7C7 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E8F372207A753C00BFA7C7 /* City.swift */; };
 		A1E8F375207A78DB00BFA7C7 /* Request_city.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E8F374207A78DB00BFA7C7 /* Request_city.swift */; };
 		A1E8F377207A78E700BFA7C7 /* Request_search.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E8F376207A78E700BFA7C7 /* Request_search.swift */; };
@@ -48,7 +50,7 @@
 		4F7BA4F1DB8B0823EDA2B702 /* Pods_TheWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A13AB2E2207A63360054DA50 /* TheWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A13AB2E5207A63360054DA50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A13AB2E9207A63360054DA50 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		A13AB2E9207A63360054DA50 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A13AB2EC207A63360054DA50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A13AB2EE207A63370054DA50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A13AB2F1207A63370054DA50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,8 +61,10 @@
 		A13AB303207A63370054DA50 /* TheWeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheWeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A13AB307207A63370054DA50 /* TheWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheWeatherUITests.swift; sourceTree = "<group>"; };
 		A13AB309207A63370054DA50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A13AB316207A6F6F0054DA50 /* MainCityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCityList.swift; sourceTree = "<group>"; };
+		A13AB316207A6F6F0054DA50 /* MainCitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCitiesViewController.swift; sourceTree = "<group>"; };
 		A13AB318207A732B0054DA50 /* MainListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListCell.swift; sourceTree = "<group>"; };
+		A1949633207BAA6E00336185 /* SearchCityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCityCell.swift; sourceTree = "<group>"; };
+		A1949635207BAF4600336185 /* CityLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityLocation.swift; sourceTree = "<group>"; };
 		A1E8F372207A753C00BFA7C7 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		A1E8F374207A78DB00BFA7C7 /* Request_city.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request_city.swift; sourceTree = "<group>"; };
 		A1E8F376207A78E700BFA7C7 /* Request_search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request_search.swift; sourceTree = "<group>"; };
@@ -139,14 +143,16 @@
 			children = (
 				A13AB315207A6EFF0054DA50 /* WeatherApi */,
 				A13AB2E5207A63360054DA50 /* AppDelegate.swift */,
-				A13AB2E9207A63360054DA50 /* SecondViewController.swift */,
-				A13AB2EB207A63360054DA50 /* Main.storyboard */,
 				A13AB2EE207A63370054DA50 /* Assets.xcassets */,
+				A13AB2EB207A63360054DA50 /* Main.storyboard */,
 				A13AB2F0207A63370054DA50 /* LaunchScreen.storyboard */,
 				A13AB2F3207A63370054DA50 /* Info.plist */,
-				A13AB316207A6F6F0054DA50 /* MainCityList.swift */,
+				A13AB2E9207A63360054DA50 /* SearchViewController.swift */,
+				A1949633207BAA6E00336185 /* SearchCityCell.swift */,
+				A13AB316207A6F6F0054DA50 /* MainCitiesViewController.swift */,
 				A13AB318207A732B0054DA50 /* MainListCell.swift */,
 				A1E8F372207A753C00BFA7C7 /* City.swift */,
+				A1949635207BAF4600336185 /* CityLocation.swift */,
 			);
 			path = TheWeather;
 			sourceTree = "<group>";
@@ -401,12 +407,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1E8F375207A78DB00BFA7C7 /* Request_city.swift in Sources */,
-				A13AB2EA207A63360054DA50 /* SecondViewController.swift in Sources */,
+				A13AB2EA207A63360054DA50 /* SearchViewController.swift in Sources */,
 				A13AB2E6207A63360054DA50 /* AppDelegate.swift in Sources */,
 				A1E8F373207A753C00BFA7C7 /* City.swift in Sources */,
-				A13AB317207A6F6F0054DA50 /* MainCityList.swift in Sources */,
+				A13AB317207A6F6F0054DA50 /* MainCitiesViewController.swift in Sources */,
 				A13AB319207A732B0054DA50 /* MainListCell.swift in Sources */,
+				A1949634207BAA6E00336185 /* SearchCityCell.swift in Sources */,
 				A1E8F377207A78E700BFA7C7 /* Request_search.swift in Sources */,
+				A1949636207BAF4600336185 /* CityLocation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,7 +591,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AT3GT5737N;
 				INFOPLIST_FILE = TheWeather/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.duarte.TheWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -599,7 +610,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AT3GT5737N;
 				INFOPLIST_FILE = TheWeather/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.duarte.TheWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -616,7 +630,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AT3GT5737N;
 				INFOPLIST_FILE = TheWeatherTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.duarte.TheWeatherTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -634,7 +652,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AT3GT5737N;
 				INFOPLIST_FILE = TheWeatherTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.duarte.TheWeatherTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -651,7 +673,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AT3GT5737N;
 				INFOPLIST_FILE = TheWeatherUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.duarte.TheWeatherUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -668,7 +694,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AT3GT5737N;
 				INFOPLIST_FILE = TheWeatherUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.duarte.TheWeatherUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

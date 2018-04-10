@@ -10,9 +10,10 @@ import UIKit
 
 class SearchCityCell: UITableViewCell {
 
+    
     @IBOutlet weak var city_label: UILabel!
-    @IBOutlet weak var region_label: UILabel!
-    @IBOutlet weak var country_label: UILabel!
+    
+    
     
     
     override func awakeFromNib() {
