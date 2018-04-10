@@ -14,7 +14,7 @@ class MainCitiesViewController: UIViewController, UITableViewDelegate, UITableVi
    
     //has to have an array of cities, each time the app opens, it requests all the cities in the array
     var cities:[City]? = []
-    var cities_coords:[(Double, Double)] = [(48.86, 2.35), (51.52,-0.11)]
+    var cities_coords:[String] = []
     var isCelsius:Bool = true
     
     
@@ -25,21 +25,25 @@ class MainCitiesViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    func addToCityCoords(coords:(Double, Double)){
-        cities_coords.append((coords.0, coords.1))
-        print("city added")
-        reload_list_cities()
+    
+    @IBAction func add_btn_pressed(_ sender: Any) {
+        let search_vc = storyboard?.instantiateViewController(withIdentifier: "search_list") as! SearchViewController
+        search_vc.pass_coords_delegate = self
+        present(search_vc, animated: true, completion: nil)
     }
     
     func reload_list_cities(){
-        
         for city_coords in cities_coords{
-            let request_city = Request_city()
-            request_city.fetch_city(lat:city_coords.0, lon:city_coords.1) { (city) -> () in
-                self.cities?.append(city)
-                DispatchQueue.main.async {
-                    self.city_table_view.reloadData()
-                }
+            request_city_info(name: city_coords)
+        }
+    }
+    
+    func request_city_info(name:String){
+        let request_city = Request_city()
+        request_city.fetch_city(name:name) { (city) -> () in
+            self.cities?.append(city)
+            DispatchQueue.main.async {
+                self.city_table_view.reloadData()
             }
         }
     }
@@ -89,5 +93,13 @@ class MainCitiesViewController: UIViewController, UITableViewDelegate, UITableVi
     */
 
 }
+
+extension MainCitiesViewController:PassCoordsDelegate{
+    func tap_search_cell(name:String) {
+        cities_coords.append(name)
+        request_city_info(name:name)
+    }
+}
+
 
 

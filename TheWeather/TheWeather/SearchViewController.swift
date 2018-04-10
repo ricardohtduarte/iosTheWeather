@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PassCoordsDelegate: class{
-    func tap_search_cell(lat:Double, lon:Double)
+    func tap_search_cell(name:String)
 }
 
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
@@ -24,10 +24,12 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
     }
     
+    @IBAction func cancel_btn_pressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let user_input = searchBar.text{
-            print("teste")
-            print("\(user_input)")
             reload_search_data(user_input:user_input)
         }
         else{
@@ -68,14 +70,15 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        /*if let results = search_results{
-            let mainView = storyboard?.instantiateViewController(withIdentifier: "main_list") as! MainCitiesViewController
-            mainView.addToCityCoords(coords: (results[indexPath.item].lat!, results[indexPath.item].lon!))
+        if let results = search_results{
+            let first_name = results[indexPath.item].name!.split(separator: ",")[0] //get the first ocurrence of the search item
+            pass_coords_delegate?.tap_search_cell(name: String(first_name))
+            dismiss(animated: true, completion: nil)
         }
         else{
             print("Error clicking in item, error unwrapping search_results")
         }
-        */
+ 
     }
 }
 

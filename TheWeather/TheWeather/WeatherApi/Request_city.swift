@@ -15,8 +15,8 @@ class Request_city: NSObject {
     
     var get_city_url = "https://api.apixu.com/v1/current.json?key=ec4629c7d40f4a90a1e160602180804&q="
     
-    func fetch_city(lat:Double, lon:Double, request_complete: @escaping (City) -> ()){
-        let url:String = get_city_url + String(lat) + "," + String(lon)
+    func fetch_city(name:String, request_complete: @escaping (City) -> ()){
+        let url:String = get_city_url + name
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
             .responseJSON { (responseData) -> Void in
                 if((responseData.result.value) != nil) {
