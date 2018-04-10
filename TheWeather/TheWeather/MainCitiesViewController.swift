@@ -37,6 +37,7 @@ class MainCitiesViewController: UIViewController, UITableViewDelegate, UITableVi
             request_city_info(name: city_coords)
         }
     }
+
     
     func request_city_info(name:String){
         let request_city = Request_city()
@@ -67,6 +68,7 @@ class MainCitiesViewController: UIViewController, UITableViewDelegate, UITableVi
         if let cities = cities{
             cell.city_name.text = cities[indexPath.item].name
             cell.city_country.text = cities[indexPath.item].country
+            cell.city_weather_image.downloadImage(from: (cities[indexPath.item].condition_icon)!)
             if isCelsius{
                 cell.city_temp.text = "\(cities[indexPath.item].c_temp!) C"
             }
@@ -98,6 +100,23 @@ extension MainCitiesViewController:PassCoordsDelegate{
     func tap_search_cell(name:String) {
         cities_coords.append(name)
         request_city_info(name:name)
+    }
+}
+
+extension UIImageView{
+    func downloadImage(from url: String){
+        let complete_url = "https:" + url
+        let urlRequest = URLRequest(url: URL(string:complete_url)!)
+        let task = URLSession.shared.dataTask(with: urlRequest){(data, response, error) in
+            if error != nil{
+                print(error!)
+                return
+            }
+            DispatchQueue.main.async {
+                self.image = UIImage(data:data!)
+            }
+        }
+        task.resume()
     }
 }
 

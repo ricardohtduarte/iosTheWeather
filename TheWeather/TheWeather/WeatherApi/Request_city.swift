@@ -22,16 +22,20 @@ class Request_city: NSObject {
                 if((responseData.result.value) != nil) {
                     let response = JSON(responseData.result.value!)
                     if let city_location = response["location"].dictionaryObject,
-                        let city_current = response["current"].dictionaryObject{
+                        let city_current = response["current"].dictionaryObject,
+                        let condition = response["current"]["condition"].dictionaryObject
+                    {
                         if let name = city_location["name"] as? String,
                             let country = city_location["country"] as? String,
                             let lat = city_location["lat"] as? Double,
                             let lon = city_location["lon"] as? Double,
                             let f_temp = city_current["temp_f"] as? Double,
-                            let c_temp = city_current["temp_c"] as?  Double
+                            let c_temp = city_current["temp_c"] as?  Double,
+                            let condition_icon = condition["icon"] as? String
                         {
                             let city = City()
-                            city.fill_city_info(name: name, country: country, lat:lat, lon:lon, f_temp:f_temp, c_temp:c_temp)            
+                            print("teste \(condition_icon)")
+                            city.fill_city_info(name: name, country: country, lat:lat, lon:lon, f_temp:f_temp, c_temp:c_temp, condition_icon:condition_icon)
                             request_complete(city)
                         }
                         else{
