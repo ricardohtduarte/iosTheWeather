@@ -10,7 +10,7 @@ import UIKit
 
 class MainCitiesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var city_table_view: UITableView!
-    
+    var city_to_pass:City?
    
     //has to have an array of cities, each time the app opens, it requests all the cities in the array
     var cities:[City]? = []
@@ -25,12 +25,14 @@ class MainCitiesViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    
-    @IBAction func add_btn_pressed(_ sender: Any) {
+    @IBAction func add_btn_action(_ sender: Any) {
         let search_vc = storyboard?.instantiateViewController(withIdentifier: "search_list") as! SearchViewController
         search_vc.pass_coords_delegate = self
         present(search_vc, animated: true, completion: nil)
+        
     }
+    
+    
     
     func reload_list_cities(){
         for city_coords in cities_coords{
@@ -82,7 +84,15 @@ class MainCitiesViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        city_to_pass = cities?[indexPath.item]
+        performSegue(withIdentifier: "city_to_forecast", sender: city_to_pass)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let forecastVC = segue.destination as! CityForecastViewController
+        forecastVC.city = sender as? City
+    }
     
     /*
     // MARK: - Navigation

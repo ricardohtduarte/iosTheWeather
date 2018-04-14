@@ -16,6 +16,11 @@ class City: NSObject {
     var f_temp:Double?
     var c_temp:Double?
     var condition_icon:String?
+    var condition_text:String?
+    var wind_mph:Double?
+    var wind_kph:Double?
+    var precipitation:Double?
+    var humidity:Double?
     
     func fill_city_info(name:String, country:String, lat:Double, lon:Double, f_temp:Double,
                         c_temp:Double, condition_icon:String){
